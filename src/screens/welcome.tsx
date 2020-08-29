@@ -1,36 +1,43 @@
-import { css } from '@emotion/native'
 // import ViewPager from '@react-native-community/viewpager'
+import { css } from '@emotion/primitives'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient'
-import { Title } from 'react-native-paper'
 
+import { WelcomeImage } from '~/assets'
 import Colors from '~/colors'
 import {
-  AppleAuthButton,
-  LargeTitleEmphasized,
-  FacebookAuthButton,
-  GoogleAuthButton,
-  SafeAreaBlurView,
-  ViewPagerPage,
+	AppleAuthButton,
+	FacebookAuthButton,
+	Flex,
+	GoogleAuthButton,
+	Headline,
+	Icon,
+	LargeTitleEmphasized,
+	Screen,
+	ViewPagerPage,
+	EmailAuthButton,
+	SafeAreaBlurView,
 } from '~/components'
-import { View } from 'react-native'
 
 const flexStyle = css({ flex: 1 })
 
-const Welcome: React.FC = () => {
-  return (
-    <LinearGradient
-      colors={[
-        Colors.shockingPinkCrayola,
-        Colors.persianPink,
-        Colors.salmonPink,
-        Colors.mellowApricot,
-        Colors.mustard,
-      ]}
-      style={flexStyle}
-    >
-      <SafeAreaBlurView>
-        {/* <ViewPager initialPage={0} orientation='horizontal' style={flexStyle}>
+const Welcome: React.FC & typeof Screen = () => (
+	<Screen>
+		<LinearGradient
+			colors={[
+				Colors.frenchRose,
+				Colors.brinkPink,
+				Colors.lightCoral,
+				Colors.congoPink,
+				Colors.lightSalmon,
+				Colors.mellowApricot,
+				Colors.jasmine,
+			]}
+			start={{ x: 0, y: 1 }}
+			end={{ x: 1, y: 0 }}
+			style={flexStyle}
+		>
+			{/* <ViewPager initialPage={0} orientation='horizontal' style={flexStyle}>
           <ViewPagerPage>
             <LargeTitleEmphasized>Find Your Special Someone</LargeTitleEmphasized>
           </ViewPagerPage>
@@ -39,22 +46,34 @@ const Welcome: React.FC = () => {
             <LargeTitleEmphasized>More profiles, more dates</LargeTitleEmphasized>
           </ViewPagerPage> */}
 
-        <ViewPagerPage>
-          <LargeTitleEmphasized>
-            Sign up now for the beta, and get notified
-          </LargeTitleEmphasized>
-          <Title>Continue with:</Title>
+			<ViewPagerPage>
+				<WelcomeImage width={300} height={400} />
 
-          <View style={{ flexDirection: 'row' }}>
-            <AppleAuthButton />
-            <FacebookAuthButton />
-            <GoogleAuthButton />
-          </View>
-        </ViewPagerPage>
-        {/* </ViewPager> */}
-      </SafeAreaBlurView>
-    </LinearGradient>
-  )
+				<Flex alignItems='center' flexDirection='row'>
+					<Icon color='white' name='heart-circle' size={56} />
+					<LargeTitleEmphasized color='white'>MatchApp</LargeTitleEmphasized>
+				</Flex>
+
+				<Headline color='white' p={2} textAlign='center'>
+					Sign up now for the beta, and get notified as soon as the app launch!
+				</Headline>
+
+				<Flex flexDirection='row' m={3}>
+					<AppleAuthButton />
+					<FacebookAuthButton />
+					<GoogleAuthButton />
+					<EmailAuthButton />
+				</Flex>
+			</ViewPagerPage>
+			{/* </ViewPager> */}
+		</LinearGradient>
+	</Screen>
+)
+
+Welcome.screenOptions = {
+	headerLargeTitle: false,
+	headerTitleStyle: { color: 'transparent' },
+	headerTitle: 'Welcome',
 }
 
 export default Welcome

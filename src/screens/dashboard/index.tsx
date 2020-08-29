@@ -9,42 +9,42 @@ import { LargeTitleEmphasized } from '~/components'
 import ProfileTab from './profile'
 
 const Tab = Platform.select({
-  default: createMaterialBottomTabNavigator,
-  ios: createBottomTabNavigator,
+	default: createMaterialBottomTabNavigator,
+	ios: createBottomTabNavigator,
 })()
 
 const HomeTab = () => <LargeTitleEmphasized>Home</LargeTitleEmphasized>
 const HomeTabIcon = ({ color, size }) => (
-  <Icon color={color} name='heart' size={size} />
+	<Icon color={color} name='heart' size={size} />
 )
 
 const SearchTab = () => <LargeTitleEmphasized>Search</LargeTitleEmphasized>
 const SearchTabIcon = ({ color, size }) => (
-  <Icon color={color} name='search' size={size} />
+	<Icon color={color} name='search' size={size} />
 )
 
 const ProfileTabIcon = ({ color, size }) => (
-  <Icon color={color} name='person' size={size} />
+	<Icon color={color} name='person' size={size} />
 )
 
 const Dashboard: React.FC = () => (
-  <Tab.Navigator>
-    <Tab.Screen
-      component={HomeTab}
-      name='match'
-      options={{ tabBarIcon: HomeTabIcon }}
-    />
-    <Tab.Screen
-      component={SearchTab}
-      name='search'
-      options={{ tabBarIcon: SearchTabIcon }}
-    />
-    <Tab.Screen
-      component={ProfileTab}
-      name='profile'
-      options={{ tabBarIcon: ProfileTabIcon }}
-    />
-  </Tab.Navigator>
+	<Tab.Navigator>
+		<Tab.Screen
+			component={HomeTab}
+			name='match'
+			options={{ tabBarIcon: HomeTabIcon }}
+		/>
+		<Tab.Screen
+			component={SearchTab}
+			name='search'
+			options={{ tabBarIcon: SearchTabIcon }}
+		/>
+		<Tab.Screen
+			component={ProfileTab}
+			name='profile'
+			options={{ tabBarIcon: ProfileTabIcon }}
+		/>
+	</Tab.Navigator>
 )
 
 export default Dashboard

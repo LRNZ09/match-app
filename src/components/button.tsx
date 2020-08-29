@@ -1,72 +1,86 @@
-import styled, { css } from '@emotion/native'
+import styled, { css } from '@emotion/primitives'
+import { useTheme } from '@react-navigation/native'
+import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import { Platform } from 'react-native'
-import { useColorScheme } from 'react-native-appearance'
 import { RectButton, RectButtonProperties } from 'react-native-gesture-handler'
 import { iOSUIKit, material } from 'react-native-typography'
 
+import { system } from '~/utils'
+
 import Icon from './icon'
 
-const buttonStyle = css({
-  alignItems: 'center',
-  borderRadius: 8,
-  flexDirection: 'row',
-  justifyContent: 'center',
-  margin: 8,
-  padding: 12,
-})
+const StyledRectButton = styled(RectButton)((props) => {
+	const { theme } = props
 
-const buttonChildrenStyle = css({ marginEnd: 8 })
+	return {
+		alignItems: 'center',
+		backgroundColor: theme.colors.primary,
+		borderRadius: theme.roundness,
+		color: theme.colors.card,
+		elevation: 2,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		padding: 8,
+	}
+}, system)
 
-const ButtonIcon = (props) => <Icon size={28} {...props} />
+const buttonIconStyle = css({ marginEnd: 8 })
 
 const ButtonText = styled.Text((props) => {
-  const colorScheme = useColorScheme()
+	const { theme } = props
 
-  let defaultStyle = Platform.select({
-    default: material.buttonObject,
-    ios: iOSUIKit.calloutObject,
-  })
+	if (theme.dark)
+		return Platform.select({
+			default: material.buttonObject,
+			ios: iOSUIKit.calloutObject,
+		})
 
-  if (colorScheme === 'dark')
-    defaultStyle = Platform.select({
-      default: material.buttonWhiteObject,
-      ios: iOSUIKit.calloutWhiteObject,
-    })
+	return Platform.select({
+		default: material.buttonWhiteObject,
+		ios: iOSUIKit.calloutWhiteObject,
+	})
+}, system)
 
-  return {
-    ...defaultStyle,
-    color: props.color ?? defaultStyle.color,
-  }
-})
-
-const Button: React.FC<RectButtonProperties> = (props) => {
-  const { backgroundColor, color, children, style, ...rest } = props
-
-  const childrenCount = React.Children.count(children)
-
-  return (
-    <RectButton
-      rippleColor={color}
-      {...rest}
-      style={[{ backgroundColor, color }, style, buttonStyle]}
-    >
-      {React.Children.map(children, (child, index) => {
-        return React.cloneElement(child, {
-          backgroundColor,
-          color,
-          ...child.props,
-          style: [
-            child.props.style,
-            childrenCount - 1 !== index && buttonChildrenStyle,
-          ],
-        })
-      })}
-    </RectButton>
-  )
+const ButtonProps = {
+	backgroundColor: PropTypes.string,
+	color: PropTypes.string,
+	icon: PropTypes.string,
 }
 
-Button.Icon = ButtonIcon
-Button.Text = ButtonText
+const Button: React.FC<
+	RectButtonProperties & InferProps<typeof ButtonProps>
+> = (props) => {
+	const theme = useTheme()
+
+	const {
+		backgroundColor = theme.colors.primary,
+		children,
+		color = theme.colors.card,
+		icon,
+		...rest
+	} = props
+
+	const childrenCount = React.Children.count(children)
+
+	return (
+		<StyledRectButton
+			backgroundColor={backgroundColor}
+			color={color}
+			rippleColor={color}
+			{...rest}
+		>
+			{icon && (
+				<Icon
+					color={color}
+					name={icon}
+					size={24}
+					style={childrenCount > 0 && buttonIconStyle}
+				/>
+			)}
+			<ButtonText color={color}>{children}</ButtonText>
+		</StyledRectButton>
+	)
+}
 
 export default Button

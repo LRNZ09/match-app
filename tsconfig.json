@@ -1,23 +1,22 @@
 {
-  "compileOnSave": true,
-  "compilerOptions": {
-    "checkJs": true,
-    "downlevelIteration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "lib": ["dom", "esnext"],
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "paths": {
-      "~/*": ["./src/*"]
-    },
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true
-  },
-  "extends": "@tsconfig/react-native/tsconfig.json",
-  "include": ["./src/**/*"]
+	"compileOnSave": true,
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"checkJs": true,
+		"downlevelIteration": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"lib": ["dom", "esnext"],
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"paths": {
+			"~/*": ["./*"]
+		},
+		"removeComments": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true
+	},
+	"extends": "@tsconfig/react-native/tsconfig.json"
 }

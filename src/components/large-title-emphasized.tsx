@@ -1,21 +1,8 @@
-import styled from '@emotion/native'
-import { Platform } from 'react-native'
-import { useColorScheme } from 'react-native-appearance'
-import { iOSUIKit, material } from 'react-native-typography'
+import styled from '@emotion/primitives'
+import { systemWeights } from 'react-native-typography'
 
-const LargeTitleEmphasized = styled.Text(() => {
-  const colorScheme = useColorScheme()
+import LargeTitle from './large-title'
 
-  if (colorScheme === 'dark')
-    return Platform.select({
-      default: material.display1WhiteObject,
-      ios: iOSUIKit.largeTitleEmphasizedWhiteObject,
-    })
-
-  return Platform.select({
-    default: material.display1Object,
-    ios: iOSUIKit.largeTitleEmphasizedObject,
-  })
-})
+const LargeTitleEmphasized = styled(LargeTitle)(systemWeights.bold)
 
 export default LargeTitleEmphasized
