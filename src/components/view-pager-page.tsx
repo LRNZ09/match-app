@@ -14,8 +14,8 @@ const ViewPagerPage: React.FC<ScrollViewProps> = (props) => {
 	return (
 		<ScrollView
 			{...rest}
-			contentInsetAdjustmentBehavior='automatic'
 			contentContainerStyle={[contentContainerStyle, viewPagerPageStyle]}
+			contentInsetAdjustmentBehavior='automatic'
 		/>
 	)
 }

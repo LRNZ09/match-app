@@ -1,12 +1,12 @@
 import AppleAuth, {
-	AppleButton,
 	AppleAuthRequestOperation,
 	AppleAuthRequestScope,
+	AppleButton,
 } from '@invertase/react-native-apple-authentication'
 import firebase from '@react-native-firebase/app'
 import { useTheme } from '@react-navigation/native'
 import React, { useCallback, useState } from 'react'
-import { Alert, ActivityIndicator } from 'react-native'
+import { ActivityIndicator, Alert } from 'react-native'
 import Modal from 'react-native-modal'
 
 import { signInOrShowCredentialAlert } from '~/auth'
@@ -77,11 +77,11 @@ const AppleAuthButton: React.FC = () => {
 				buttonStyle={buttonStyle}
 				buttonType={AppleButton.Type.CONTINUE}
 				cornerRadius={theme.roundness}
-				onPress={onPress}
 				style={authButtonStyle}
+				onPress={onPress}
 			/>
 
-			<Modal isVisible={isModalVisible} useNativeDriver>
+			<Modal useNativeDriver isVisible={isModalVisible}>
 				<ActivityIndicator size='large' />
 			</Modal>
 		</>

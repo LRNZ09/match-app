@@ -1,4 +1,4 @@
-// import ViewPager from '@react-native-community/viewpager'
+// Import ViewPager from '@react-native-community/viewpager'
 import { css } from '@emotion/primitives'
 import React from 'react'
 import LinearGradient from 'react-native-linear-gradient'
@@ -7,16 +7,16 @@ import { WelcomeImage } from '~/assets'
 import Colors from '~/colors'
 import {
 	AppleAuthButton,
+	EmailAuthButton,
 	FacebookAuthButton,
 	Flex,
 	GoogleAuthButton,
 	Headline,
 	Icon,
 	LargeTitleEmphasized,
+	SafeAreaBlurView,
 	Screen,
 	ViewPagerPage,
-	EmailAuthButton,
-	SafeAreaBlurView,
 } from '~/components'
 
 const flexStyle = css({ flex: 1 })
@@ -33,8 +33,8 @@ const Welcome: React.FC & typeof Screen = () => (
 				Colors.mellowApricot,
 				Colors.jasmine,
 			]}
-			start={{ x: 0, y: 1 }}
 			end={{ x: 1, y: 0 }}
+			start={{ x: 0, y: 1 }}
 			style={flexStyle}
 		>
 			{/* <ViewPager initialPage={0} orientation='horizontal' style={flexStyle}>
@@ -47,7 +47,7 @@ const Welcome: React.FC & typeof Screen = () => (
           </ViewPagerPage> */}
 
 			<ViewPagerPage>
-				<WelcomeImage width={300} height={400} />
+				<WelcomeImage height={400} width={300} />
 
 				<Flex alignItems='center' flexDirection='row'>
 					<Icon color='white' name='heart-circle' size={56} />

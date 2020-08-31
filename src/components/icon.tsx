@@ -13,6 +13,7 @@ const Icon: React.FC<IconProps> = (props) => {
 	if (name.startsWith('material')) {
 		const [, ...restName] = name.split('-')
 		const materialName = restName.join('-')
+
 		return <MaterialIcon {...rest} color={color} name={materialName} />
 	}
 

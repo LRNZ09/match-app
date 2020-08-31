@@ -18,9 +18,9 @@ const Screen: React.FC<StatusBarProps> & ScreenComponent = (props) => {
 		<>
 			<StatusBar
 				animated
+				translucent
 				barStyle={defaultBarStyle}
 				showHideTransition='slide'
-				translucent
 				{...rest}
 			/>
 

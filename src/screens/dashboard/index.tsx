@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import React from 'react'
 import { Platform } from 'react-native'
+import { IconProps } from 'react-native-vector-icons/Icon'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import { LargeTitleEmphasized } from '~/components'
@@ -14,16 +15,16 @@ const Tab = Platform.select({
 })()
 
 const HomeTab = () => <LargeTitleEmphasized>Home</LargeTitleEmphasized>
-const HomeTabIcon = ({ color, size }) => (
+const HomeTabIcon: React.FC<IconProps> = ({ color, size }) => (
 	<Icon color={color} name='heart' size={size} />
 )
 
 const SearchTab = () => <LargeTitleEmphasized>Search</LargeTitleEmphasized>
-const SearchTabIcon = ({ color, size }) => (
+const SearchTabIcon: React.FC<IconProps> = ({ color, size }) => (
 	<Icon color={color} name='search' size={size} />
 )
 
-const ProfileTabIcon = ({ color, size }) => (
+const ProfileTabIcon: React.FC<IconProps> = ({ color, size }) => (
 	<Icon color={color} name='person' size={size} />
 )
 

@@ -3,9 +3,9 @@ import { useTheme } from '@react-navigation/native'
 import PropTypes, { InferProps } from 'prop-types'
 import React from 'react'
 import {
+	Platform,
 	TextInput as RNTextInput,
 	TextInputProperties,
-	Platform,
 } from 'react-native'
 import { TextInput as PaperTextInput } from 'react-native-paper'
 
@@ -45,10 +45,10 @@ const TextInput: React.FC<
 	return (
 		<TextInputComponent
 			{...rest}
-			clearButtonMode='while-editing'
-			enablesReturnKeyAutomatically
-			placeholderTextColor={theme.colors.placeholder}
 			ref={forwardedRef}
+			enablesReturnKeyAutomatically
+			clearButtonMode='while-editing'
+			placeholderTextColor={theme.colors.placeholder}
 			selectionColor={theme.colors.primary}
 		/>
 	)

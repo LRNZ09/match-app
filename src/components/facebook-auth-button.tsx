@@ -1,6 +1,6 @@
 import firebase from '@react-native-firebase/app'
 import React, { useCallback, useState } from 'react'
-import { Alert, ActivityIndicator } from 'react-native'
+import { ActivityIndicator, Alert } from 'react-native'
 import {
 	AccessToken,
 	GraphRequest,
@@ -20,11 +20,15 @@ const getFacebookUser = () =>
 	new Promise<{ email: string; name: string }>(() => {
 		new GraphRequestManager()
 			.addRequest(
-				new GraphRequest('/me?fields=email,name', null, (error, result) => {
-					if (error || !result) return Promise.reject(error)
+				new GraphRequest(
+					'/me?fields=email,name',
+					undefined,
+					(error, result) => {
+						if (error || !result) return Promise.reject(error)
 
-					return Promise.resolve(result)
-				}),
+						return Promise.resolve(result)
+					},
+				),
 			)
 			.start()
 	})
@@ -65,11 +69,11 @@ const FacebookAuthButton: React.FC = () => {
 				backgroundColor='rgb(54, 120, 234)'
 				color='whitesmoke'
 				icon='material-facebook'
-				onPress={onPress}
 				style={authButtonStyle}
+				onPress={onPress}
 			/>
 
-			<Modal isVisible={isModalVisible} useNativeDriver>
+			<Modal useNativeDriver isVisible={isModalVisible}>
 				<ActivityIndicator size='large' />
 			</Modal>
 		</>

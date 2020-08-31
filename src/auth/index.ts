@@ -15,10 +15,10 @@ const getMethodName = (method: string) => {
 
 const signInOrShowCredentialAlert = async ({
 	credential,
-	email = null,
+	email,
 }: {
 	credential: FirebaseAuthTypes.AuthCredential
-	email?: string | null
+	email?: string
 }) => {
 	try {
 		const userCredential = await firebase
@@ -33,8 +33,8 @@ const signInOrShowCredentialAlert = async ({
 		const userEmail = error.email ?? email
 		if (!userEmail) throw error
 
-		// If the user has several sign-in methods,
-		// the first method in the list will be the "recommended" method to use.
+		/* If the user has several sign-in methods,
+		   the first method in the list will be the "recommended" method to use. */
 		const [method] = await firebase.auth().fetchSignInMethodsForEmail(userEmail)
 
 		const methodName = getMethodName(method)

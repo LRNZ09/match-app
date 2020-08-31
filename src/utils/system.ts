@@ -2,6 +2,7 @@ import {
 	background,
 	border,
 	color,
+	compose,
 	flexbox,
 	grid,
 	layout,
@@ -9,7 +10,6 @@ import {
 	shadow,
 	space,
 	typography,
-	compose,
 } from 'styled-system'
 
 const system = compose(

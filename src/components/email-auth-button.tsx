@@ -18,8 +18,8 @@ const EmailAuthButton: React.FC = () => {
 			backgroundColor='sandybrown'
 			color='whitesmoke'
 			icon='mail'
-			onPress={onPress}
 			style={authButtonStyle}
+			onPress={onPress}
 		/>
 	)
 }

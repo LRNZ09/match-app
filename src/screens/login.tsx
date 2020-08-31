@@ -1,10 +1,10 @@
-import React, { useRef, useCallback } from 'react'
-import { ScrollView, TextInput as RNTextInput } from 'react-native'
+import React, { useCallback, useRef } from 'react'
+import { TextInput as RNTextInput, ScrollView } from 'react-native'
 
 import { Button, Screen, TextInput } from '~/components'
 
 const Login: React.FC & typeof Screen = () => {
-	const passwordTextInputRef = useRef<RNTextInput>(null)
+	const passwordTextInputRef = useRef<RNTextInput>()
 
 	const onEmailSubmitEditing = useCallback(() => {
 		passwordTextInputRef.current?.focus()
@@ -13,8 +13,8 @@ const Login: React.FC & typeof Screen = () => {
 	return (
 		<Screen>
 			<ScrollView
-				contentInsetAdjustmentBehavior='automatic'
 				contentContainerStyle={{ padding: 16 }}
+				contentInsetAdjustmentBehavior='automatic'
 			>
 				<TextInput
 					autoCapitalize='none'
@@ -27,11 +27,11 @@ const Login: React.FC & typeof Screen = () => {
 				/>
 				<TextInput
 					ref={passwordTextInputRef}
+					secureTextEntry
 					autoCapitalize='none'
 					autoCompleteType='password'
 					placeholder='Password'
 					returnKeyType='done'
-					secureTextEntry
 					textContentType='password'
 				/>
 
