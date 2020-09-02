@@ -1,4 +1,4 @@
-import firebase from '@react-native-firebase/app'
+// import firebase from '@react-native-firebase/app'
 import { useNavigation } from '@react-navigation/core'
 import React, { useCallback } from 'react'
 

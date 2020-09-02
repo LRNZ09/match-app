@@ -14,7 +14,6 @@ import {
 	Headline,
 	Icon,
 	LargeTitleEmphasized,
-	SafeAreaBlurView,
 	Screen,
 	ViewPagerPage,
 } from '~/components'

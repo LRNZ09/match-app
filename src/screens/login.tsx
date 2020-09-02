@@ -1,7 +1,12 @@
+import { css } from '@emotion/primitives'
 import React, { useCallback, useRef } from 'react'
 import { TextInput as RNTextInput, ScrollView } from 'react-native'
 
 import { Button, Screen, TextInput } from '~/components'
+
+const scrollViewStyle = css({
+	padding: 16,
+})
 
 const Login: React.FC & typeof Screen = () => {
 	const passwordTextInputRef = useRef<RNTextInput>()
@@ -13,7 +18,7 @@ const Login: React.FC & typeof Screen = () => {
 	return (
 		<Screen>
 			<ScrollView
-				contentContainerStyle={{ padding: 16 }}
+				contentContainerStyle={scrollViewStyle}
 				contentInsetAdjustmentBehavior='automatic'
 			>
 				<TextInput

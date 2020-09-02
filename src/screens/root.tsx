@@ -21,9 +21,7 @@ const Root: React.FC = () => {
 	return (
 		<Stack.Navigator screenOptions={DEFAULT_SCREEN_OPTIONS}>
 			{user ? (
-				<>
-					<Stack.Screen component={Dashboard} name='dashboard' />
-				</>
+				<Stack.Screen component={Dashboard} name='dashboard' />
 			) : (
 				<>
 					<Stack.Screen
