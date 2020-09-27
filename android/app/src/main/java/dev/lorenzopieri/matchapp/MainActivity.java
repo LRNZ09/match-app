@@ -26,7 +26,7 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "MatchApp";
+        return BuildConfig.APP_NAME;
     }
 
     @Override

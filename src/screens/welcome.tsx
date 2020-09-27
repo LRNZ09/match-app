@@ -1,12 +1,12 @@
-// Import ViewPager from '@react-native-community/viewpager'
 import { css } from '@emotion/primitives'
-import React from 'react'
+import React, { useCallback } from 'react'
 import LinearGradient from 'react-native-linear-gradient'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { WelcomeImage } from '~/assets'
 import Colors from '~/colors'
 import {
 	AppleAuthButton,
+	TextButton,
 	EmailAuthButton,
 	FacebookAuthButton,
 	Flex,
@@ -15,64 +15,69 @@ import {
 	Icon,
 	LargeTitleEmphasized,
 	Screen,
-	ViewPagerPage,
 } from '~/components'
+import TwitterAuthButton from '~/components/twitter-auth-button'
+import { ScreenComponent, ScreenComponentProps } from '~/interfaces'
 
 const flexStyle = css({ flex: 1 })
 
-const Welcome: React.FC & typeof Screen = () => (
-	<Screen>
-		<LinearGradient
-			colors={[
-				Colors.frenchRose,
-				Colors.brinkPink,
-				Colors.lightCoral,
-				Colors.congoPink,
-				Colors.lightSalmon,
-				Colors.mellowApricot,
-				Colors.jasmine,
-			]}
-			end={{ x: 1, y: 0 }}
-			start={{ x: 0, y: 1 }}
-			style={flexStyle}
-		>
-			{/* <ViewPager initialPage={0} orientation='horizontal' style={flexStyle}>
-          <ViewPagerPage>
-            <LargeTitleEmphasized>Find Your Special Someone</LargeTitleEmphasized>
-          </ViewPagerPage>
+const Welcome: React.FC & ScreenComponent = () => {
+	const insets = useSafeAreaInsets()
 
-          <ViewPagerPage>
-            <LargeTitleEmphasized>More profiles, more dates</LargeTitleEmphasized>
-          </ViewPagerPage> */}
+	return (
+		<Screen>
+			<LinearGradient
+				colors={[Colors.redSalsa, Colors.amaranthPink]}
+				end={{ x: 1, y: 0 }}
+				start={{ x: 0, y: 1 }}
+				style={flexStyle}
+			>
+				<Flex
+					alignItems='center'
+					flex={1}
+					justifyContent='center'
+					// https://github.com/software-mansion/react-native-screens/tree/master/native-stack#measuring-headers-height-on-ios
+					mt={insets.top + 44}
+					padding={4}
+				>
+					<Flex alignItems='center' flexDirection='row' mb={2}>
+						<Icon color='white' name='heart-circle' size={56} />
+						<LargeTitleEmphasized color='white'>MatchApp</LargeTitleEmphasized>
+					</Flex>
 
-			<ViewPagerPage>
-				<WelcomeImage height={400} width={300} />
+					<Headline color='white' mb={4} textAlign='center'>
+						Sign up now for the beta, and get notified as soon as the app
+						launch!
+					</Headline>
 
-				<Flex alignItems='center' flexDirection='row'>
-					<Icon color='white' name='heart-circle' size={56} />
-					<LargeTitleEmphasized color='white'>MatchApp</LargeTitleEmphasized>
+					<Flex flexDirection='row'>
+						<AppleAuthButton />
+						<FacebookAuthButton />
+						<GoogleAuthButton />
+						<TwitterAuthButton />
+						<EmailAuthButton />
+					</Flex>
 				</Flex>
+			</LinearGradient>
+		</Screen>
+	)
+}
 
-				<Headline color='white' p={2} textAlign='center'>
-					Sign up now for the beta, and get notified as soon as the app launch!
-				</Headline>
+const WelcomeHeaderRight: React.FC<ScreenComponentProps> = (props) => {
+	const { navigation } = props
 
-				<Flex flexDirection='row' m={3}>
-					<AppleAuthButton />
-					<FacebookAuthButton />
-					<GoogleAuthButton />
-					<EmailAuthButton />
-				</Flex>
-			</ViewPagerPage>
-			{/* </ViewPager> */}
-		</LinearGradient>
-	</Screen>
-)
+	const onPress = useCallback(() => {
+		navigation.navigate('accountLogin')
+	}, [navigation])
 
-Welcome.screenOptions = {
+	return <TextButton onPress={onPress}>Already a member?</TextButton>
+}
+
+Welcome.screenOptions = (screenProps) => ({
 	headerLargeTitle: false,
 	headerTitleStyle: { color: 'transparent' },
-	headerTitle: 'Welcome',
-}
+	headerRight: (props) => <WelcomeHeaderRight {...screenProps} {...props} />,
+	title: 'Welcome',
+})
 
 export default Welcome

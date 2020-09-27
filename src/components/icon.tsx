@@ -6,9 +6,8 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const Icon: React.FC<IconProps> = (props) => {
 	const theme = useTheme()
-	const defaultColor = theme.dark ? 'white' : 'black'
 
-	const { color = defaultColor, name, ...rest } = props
+	const { color = theme.colors.text, name, ...rest } = props
 
 	if (name.startsWith('material')) {
 		const [, ...restName] = name.split('-')

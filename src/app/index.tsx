@@ -1,16 +1,18 @@
 import { ActionSheetProvider } from '@expo/react-native-action-sheet'
 import { GoogleSignin } from '@react-native-community/google-signin'
 import { NavigationContainer } from '@react-navigation/native'
-import * as Sentry from '@sentry/react-native'
 import { ThemeProvider } from 'emotion-theming'
 import React, { useEffect } from 'react'
+import { NativeModules } from 'react-native'
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance'
 import { Provider as PaperProvider } from 'react-native-paper'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-import { SENTRY_DSN } from '~/constants'
+import { TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET } from '~/constants'
 import { Root } from '~/screens'
 import { DarkTheme, LightTheme } from '~/theme'
+
+const { RNTwitterSignIn } = NativeModules
 
 const App: React.FC = () => {
 	const colorScheme = useColorScheme()
@@ -20,10 +22,7 @@ const App: React.FC = () => {
 	}, [])
 
 	useEffect(() => {
-		if (!__DEV__)
-			Sentry.init({
-				dsn: SENTRY_DSN,
-			})
+		RNTwitterSignIn.init(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET)
 	}, [])
 
 	const theme = colorScheme === 'dark' ? DarkTheme : LightTheme

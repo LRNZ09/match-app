@@ -6,6 +6,7 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Firebase.h>
+#import <ReactNativeConfig.h>
 #import <RNGoogleSignin/RNGoogleSignin.h>
 #import <TwitterKit/TWTRKit.h>
 
@@ -35,27 +36,27 @@ static void InitializeFlipper(UIApplication *application) {
 #ifdef FB_SONARKIT_ENABLED
   InitializeFlipper(application);
 #endif
-
+  
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
-
+  
   if ([FIRApp defaultApp] == nil) {
     [FIRApp configure];
   }
-
+  
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"MatchApp"
-                                            initialProperties:nil];
-
+  
+  NSString *appName = [ReactNativeConfig envFor:@"APP_NAME"];
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge moduleName:appName initialProperties:nil];
+  
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
-
+  
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
-
+  
   return YES;
 }
 
@@ -75,15 +76,15 @@ static void InitializeFlipper(UIApplication *application) {
   if ([[FBSDKApplicationDelegate sharedInstance] application:application openURL:url options:options]) {
     return YES;
   }
-
+  
   if ([RNGoogleSignin application:application openURL:url options:options]) {
     return YES;
   }
-
+  
   if ([[Twitter sharedInstance] application:application openURL:url options:options]) {
     return YES;
   }
-
+  
   return NO;
 }
 

@@ -67,7 +67,7 @@ const FacebookAuthButton: React.FC = () => {
 		<>
 			<Button
 				backgroundColor='rgb(54, 120, 234)'
-				color='whitesmoke'
+				color='white'
 				icon='material-facebook'
 				style={authButtonStyle}
 				onPress={onPress}

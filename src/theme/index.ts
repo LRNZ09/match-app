@@ -30,7 +30,7 @@ const LightTheme = _.merge(
 		   positiveColor: iOSColors.green, */
 
 		colors: {
-			primary: Colors.frenchRose,
+			primary: Colors.radicalRed,
 		},
 		space: [0, 4, 8, 12, 16, 20, 24, 28, 32, 36],
 	},
@@ -56,7 +56,7 @@ const DarkTheme = _.merge(
 		   positiveColor: iOSColors.green,
 		     dark: true, */
 		colors: {
-			primary: Colors.lightSalmon,
+			primary: Colors.brinkPink,
 			background: iOSColors.black,
 		},
 	},

@@ -179,6 +179,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Config
+ios/tmp.xcconfig
+
 # Secrets
 .gitsecret/keys/random_seed
 !*.secret

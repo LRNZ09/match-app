@@ -82,15 +82,15 @@ import com.android.build.OutputFile
 project.ext.react = [
         enableHermes: false,  // clean and rebuild if changing
 ]
-
 apply from: '../../node_modules/react-native/react.gradle'
 
 apply from: '../../node_modules/@sentry/react-native/sentry.gradle'
 
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 project.ext.vectoricons = [
     iconFontNames: [ 'Ionicons.ttf', 'MaterialCommunityIcons.ttf' ] // Name of the font files you want to copy
 ]
-
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 /**
  * Set this to true to create two separate APKs instead of one:

@@ -1,4 +1,9 @@
+import { Config } from 'react-native-config'
+
 const SENTRY_DSN =
 	'https://628a8473d83a4a80a3e9e91182591ffd@o353577.ingest.sentry.io/5397643'
 
-export { SENTRY_DSN }
+const TWITTER_CONSUMER_KEY = Config.TWITTER_CONSUMER_KEY
+const TWITTER_CONSUMER_SECRET = Config.TWITTER_CONSUMER_SECRET
+
+export { SENTRY_DSN, TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET }

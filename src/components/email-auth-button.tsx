@@ -10,13 +10,13 @@ const EmailAuthButton: React.FC = () => {
 	const navigation = useNavigation()
 
 	const onPress = useCallback(async () => {
-		navigation.navigate('login')
+		navigation.navigate('accountCreate')
 	}, [navigation])
 
 	return (
 		<Button
 			backgroundColor='sandybrown'
-			color='whitesmoke'
+			color='white'
 			icon='mail'
 			style={authButtonStyle}
 			onPress={onPress}

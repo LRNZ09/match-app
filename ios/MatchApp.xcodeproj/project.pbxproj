@@ -10,6 +10,10 @@
 		00E356F31AD99517003FC87E /* MatchAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* MatchAppTests.m */; };
 		00FF9495CBA93CE25C464D4F /* libPods-MatchApp-MatchAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB09B3A9AF32D805DDA412FB /* libPods-MatchApp-MatchAppTests.a */; };
 		0322494F530B047D4501074C /* libPods-MatchApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECD3252CF87CC93B585C633A /* libPods-MatchApp.a */; };
+		0C2932E7250309C80003C1F5 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0C2932E6250309C80003C1F5 /* Config.xcconfig */; };
+		0C2932E8250309C80003C1F5 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0C2932E6250309C80003C1F5 /* Config.xcconfig */; };
+		0C2932E9250309C80003C1F5 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0C2932E6250309C80003C1F5 /* Config.xcconfig */; };
+		0C2932EA250309C80003C1F5 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0C2932E6250309C80003C1F5 /* Config.xcconfig */; };
 		0C97156524EC665300E2C563 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C97156424EC665300E2C563 /* GoogleService-Info.plist */; };
 		0C97156624EC665300E2C563 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C97156424EC665300E2C563 /* GoogleService-Info.plist */; };
 		0C97156724EC665300E2C563 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C97156424EC665300E2C563 /* GoogleService-Info.plist */; };
@@ -45,6 +49,7 @@
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MatchAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchAppTests.m; sourceTree = "<group>"; };
 		0C226B2124EC694700C92EB6 /* MatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MatchApp.entitlements; path = MatchApp/MatchApp.entitlements; sourceTree = "<group>"; };
+		0C2932E6250309C80003C1F5 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = MatchApp/Config.xcconfig; sourceTree = "<group>"; };
 		0C97156424EC665300E2C563 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "MatchApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0CE4CFA024EDB12E00D2037B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = MatchApp/AppDelegate.m; sourceTree = "<group>"; };
 		0CE4CFA124EDB12F00D2037B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MatchApp/AppDelegate.h; sourceTree = "<group>"; };
@@ -131,6 +136,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				0CE4CFA724EDB29300D2037B /* MatchApp-Bridging-Header.h */,
+				0C2932E6250309C80003C1F5 /* Config.xcconfig */,
 			);
 			name = MatchApp;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2932E8250309C80003C1F5 /* Config.xcconfig in Resources */,
 				0C97156624EC665300E2C563 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2932E7250309C80003C1F5 /* Config.xcconfig in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				0C97156524EC665300E2C563 /* GoogleService-Info.plist in Resources */,
@@ -348,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
+				0C2932E9250309C80003C1F5 /* Config.xcconfig in Resources */,
 				0C97156724EC665300E2C563 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2932EA250309C80003C1F5 /* Config.xcconfig in Resources */,
 				0C97156824EC665300E2C563 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +478,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates-Cpp.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -491,6 +502,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Cpp.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -524,6 +536,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates-Cpp.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -547,6 +560,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Cpp.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -914,6 +928,7 @@
 		};
 		83CBBA201A601CBA00E9B192 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C2932E6250309C80003C1F5 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -974,6 +989,7 @@
 		};
 		83CBBA211A601CBA00E9B192 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C2932E6250309C80003C1F5 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
