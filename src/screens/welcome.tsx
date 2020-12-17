@@ -1,5 +1,7 @@
 import { css } from '@emotion/primitives'
-import React, { useCallback } from 'react'
+import { Temporal } from 'proposal-temporal'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import BackgroundTimer from 'react-native-background-timer'
 import LinearGradient from 'react-native-linear-gradient'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
@@ -15,6 +17,7 @@ import {
 	Icon,
 	LargeTitleEmphasized,
 	Screen,
+	Button,
 } from '~/components'
 import TwitterAuthButton from '~/components/twitter-auth-button'
 import { ScreenComponent, ScreenComponentProps } from '~/interfaces'
@@ -23,6 +26,23 @@ const flexStyle = css({ flex: 1 })
 
 const Welcome: React.FC & ScreenComponent = () => {
 	const insets = useSafeAreaInsets()
+
+	const timerIntervalId = useRef<number>()
+
+	const [timerDuration, setTimerDuration] = useState(
+		Temporal.Duration.from({ minutes: 25 }),
+	)
+
+	useEffect(() => {
+		timerIntervalId.current = BackgroundTimer.setInterval(() => {
+			setTimerDuration((timerDuration) => timerDuration.minus({ seconds: 1 }))
+		}, 1000)
+	}, [])
+
+	const onButtonPress = useCallback(() => {
+		if (timerIntervalId.current)
+			BackgroundTimer.clearInterval(timerIntervalId.current)
+	}, [])
 
 	return (
 		<Screen>
@@ -40,6 +60,12 @@ const Welcome: React.FC & ScreenComponent = () => {
 					mt={insets.top + 44}
 					padding={4}
 				>
+					<Headline color='white' mb={6} textAlign='center'>
+						{timerDuration.minutes}:{timerDuration.seconds}
+					</Headline>
+
+					<Button onPress={onButtonPress}>Cancel</Button>
+
 					<Flex alignItems='center' flexDirection='row' mb={2}>
 						<Icon color='white' name='heart-circle' size={56} />
 						<LargeTitleEmphasized color='white'>MatchApp</LargeTitleEmphasized>
